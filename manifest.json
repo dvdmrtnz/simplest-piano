@@ -1,4 +1,16 @@
 {
   "name": "piano",
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+    "src": "img/icon-180.png",
+    "sizes": "180x180",
+    "type": "image/png"
+    },
+    {
+      "src": "img/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
 }

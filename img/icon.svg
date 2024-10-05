@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="180" fill="none" version="1.1" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <clipPath id="clip0_23_120">
+   <rect width="180" height="180" rx="40" fill="#fff"/>
+  </clipPath>
+ </defs>
+ <g display="none">
+  <rect x="0" y="0" width="180" height="180" fill="#fff"/>
+  <g opacity=".5">
+   <g clip-path="url(#clip0_23_120)" stroke="#007aff">
+    <path d="m0 123.5h180"/>
+    <path d="m0 90h180"/>
+    <path d="m0 56.5h180"/>
+    <path d="m123.5 180v-180"/>
+    <path d="m90 180v-180"/>
+    <path d="m56.5 180v-180"/>
+    <path d="M 180,180 0,0"/>
+    <path d="M 0,180 180,0"/>
+    <rect x="12" y="12" width="156" height="156"/>
+    <circle cx="90" cy="90" r="33.5"/>
+    <circle cx="90" cy="90" r="47.5"/>
+    <circle cx="90" cy="90" r="78"/>
+   </g>
+   <rect x=".5" y=".5" width="179" height="179" rx="39.5" stroke="#ff3b30"/>
+  </g>
+ </g>
+ <rect width="180" height="180" fill="#fff"/>
+ <g fill="#000">
+  <rect x="39" width="35" height="105"/>
+  <rect x="106" width="35" height="105"/>
+  <rect x="52" y="90" width="9" height="90"/>
+  <rect x="119" y="90" width="9" height="90"/>
+ </g>
+</svg>
