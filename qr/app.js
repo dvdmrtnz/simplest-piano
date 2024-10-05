@@ -1,8 +1,9 @@
+// Select the video element and the result display div
 const video = document.getElementById('video');
 const resultDiv = document.getElementById('result');
 
-// Set the path for the QRScanner worker
-QRScanner.WORKER_PATH = 'https://unpkg.com/qr-scanner/qr-scanner-worker.min.js';
+// Set the path for the QrScanner worker
+QrScanner.WORKER_PATH = 'https://unpkg.com/qr-scanner/qr-scanner-worker.min.js';
 
 // Request the camera stream using getUserMedia
 async function startCamera() {
@@ -10,9 +11,9 @@ async function startCamera() {
         const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
         video.srcObject = stream;  // Set the video source to the camera stream
 
-        // Create a QRScanner instance and start scanning
-        const qrScanner = new QRScanner(video, result => {
-            console.log('QR Code Scanned:', result);
+        // Create a QrScanner instance and start scanning
+        const qrScanner = new QrScanner(video, result => {
+            console.log('QR Code Scanned: ', result);
             resultDiv.innerHTML = `QR Code: <strong>${result}</strong>`;  // Display the result in the result div
             qrScanner.stop();  // Stop the scanner after detecting a QR code (optional)
         });
