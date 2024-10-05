@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Reader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>QR Code Reader</h1>
+
+    <!-- Video element to display the camera stream -->
+    <video id="video" autoplay></video>
+
+    <!-- Div to display the scanned QR code result -->
+    <div class="result" id="result">Waiting for QR code scan...</div>
+
+    <!-- Include the qr-scanner library -->
+    <script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
