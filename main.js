@@ -1,6 +1,8 @@
 import './3party/tone.min.js';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', init);
+
+function init() {
 
 	// Add service worker for offline playing
 	if ('serviceWorker' in navigator) {
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.addEventListener('mouseup', handleMouseUp);
 	document.addEventListener('mouseout', handleMouseUp);
 
-})
+}
 
 
 const midi = new Tone.Sampler({
