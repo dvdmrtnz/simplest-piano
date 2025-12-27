@@ -22,7 +22,7 @@ const PRECACHE_URLS = [
   './',
   'index.html',
   'style.css',
-  'script.js',
+  'main.js',
   '3party/tone.min.js',
   'sounds/021.mp3',
   'sounds/022.mp3',
