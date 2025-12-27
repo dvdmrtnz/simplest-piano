@@ -1,25 +1,23 @@
 import './3party/tone.min.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
 	// Add service worker for offline playing
 	if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('service-worker.js')
-		.then(registration => 
-		{
-			console.log("Service Worker registered"); 
-		}).catch(err => {
-			console.log('Service Worker registration failed: ', err);
-		})
+			.then(registration => {
+				console.log("Service Worker registered");
+			}).catch(err => {
+				console.log('Service Worker registration failed: ', err);
+			})
 	}
 
-	const notes = ['Bb3_As3','B3',
-			'C4','Cs4_Db4','D4','Ds4_Eb4','E4','F4','Fs4_Gb4','G4','Gs4_Ab4','A4','As4_Bb4','B4',
-			'C5','Cs5_Db5','D5','Ds5_Eb5','E5','F5','Fs5_Gb5','G5','Gs5_Ab5','A5','As5_Bb5','B5',
-			'C6','Cs6_Db6'];
+	const notes = ['Bb3_As3', 'B3',
+		'C4', 'Cs4_Db4', 'D4', 'Ds4_Eb4', 'E4', 'F4', 'Fs4_Gb4', 'G4', 'Gs4_Ab4', 'A4', 'As4_Bb4', 'B4',
+		'C5', 'Cs5_Db5', 'D5', 'Ds5_Eb5', 'E5', 'F5', 'Fs5_Gb5', 'G5', 'Gs5_Ab5', 'A5', 'As5_Bb5', 'B5',
+		'C6', 'Cs6_Db6'];
 
-	for (var i in notes)
-	{
+	for (var i in notes) {
 		const note = notes[i]
 
 		let labelDOM = document.createElement('div');
@@ -173,7 +171,7 @@ function moveTouchToKey(touchIdentifier, key) {
 	if (currentKeys[touchIdentifier] !== key) {
 		if (currentKeys[touchIdentifier]) {
 			console.log('Touch ' + touchIdentifier + ' moved out of ' + currentKeys[touchIdentifier]);
-			keyUp(currentKeys[touchIdentifier]) 
+			keyUp(currentKeys[touchIdentifier]);
 		};
 		if (key) {
 			console.log('Touch ' + touchIdentifier + ' moved in to ' + key);
@@ -185,7 +183,7 @@ function moveTouchToKey(touchIdentifier, key) {
 
 function handleTouchStart(event) {
 	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume()
+		Tone.getContext().resume();
 	}
 
 	event.preventDefault();
@@ -199,7 +197,7 @@ function handleTouchStart(event) {
 
 function handleTouchEnd(event) {
 	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume()
+		Tone.getContext().resume();
 	}
 
 	event.preventDefault();
@@ -212,7 +210,7 @@ function handleTouchEnd(event) {
 
 function handleMouseDown(event) {
 	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume()
+		Tone.getContext().resume();
 	}
 
 	event.preventDefault();
@@ -225,7 +223,7 @@ function handleMouseDown(event) {
 
 function handleMouseUp(event) {
 	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume()
+		Tone.getContext().resume();
 	}
 
 	event.preventDefault();

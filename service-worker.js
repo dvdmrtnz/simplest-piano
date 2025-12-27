@@ -117,7 +117,7 @@ const PRECACHE_URLS = [
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
   console.log('Service Worker installing.');
-  
+
   event.waitUntil(
     caches.open(PRECACHE)
       .then(cache => cache.addAll(PRECACHE_URLS))
@@ -128,7 +128,7 @@ self.addEventListener('install', event => {
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
   console.log('Service Worker activating.');
-  
+
   const currentCaches = [PRECACHE, RUNTIME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
