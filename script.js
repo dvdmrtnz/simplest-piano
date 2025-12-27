@@ -1,3 +1,5 @@
+import './3party/tone.min.js';
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	// Add service worker for offline playing
@@ -11,14 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		})
 	}
 
-	notes = ['Bb3_As3','B3',
+	const notes = ['Bb3_As3','B3',
 			'C4','Cs4_Db4','D4','Ds4_Eb4','E4','F4','Fs4_Gb4','G4','Gs4_Ab4','A4','As4_Bb4','B4',
 			'C5','Cs5_Db5','D5','Ds5_Eb5','E5','F5','Fs5_Gb5','G5','Gs5_Ab5','A5','As5_Bb5','B5',
 			'C6','Cs6_Db6'];
 
-	for (i in notes)
+	for (var i in notes)
 	{
-		note = notes[i]
+		const note = notes[i]
 
 		let labelDOM = document.createElement('div');
 		labelDOM.className = 'label';
@@ -31,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		document.querySelector('div.piano').appendChild(noteDOM);
 	}
+
+	document.querySelector(".piano").addEventListener("mousedown", start);
 
 	document.addEventListener('touchstart', handleTouchStart);
 	document.addEventListener('touchmove', handleTouchStart);
@@ -234,7 +238,7 @@ function start() {
 }
 
 function idToName(id) {
-	name = id
+	const name = id
 		.replaceAll('D', 'Re')
 		.replaceAll('C', 'Do')
 		.replaceAll('E', 'Mi')
@@ -249,14 +253,14 @@ function idToName(id) {
 }
 
 function idToTone(id) {
-	tone = id
+	const tone = id
 		.replaceAll('s', '#')
 		.replaceAll('/_[A-za-z0-9]*');
 	return tone;
 }
 
 function idToType(id) {
-	type = id.includes('s') ? 'black' : 'white';
+	const type = id.includes('s') ? 'black' : 'white';
 	return type;
 }
 
