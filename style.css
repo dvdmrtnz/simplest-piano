@@ -31,12 +31,9 @@ body {
 .white-key,
 .black-key {
 	display: flex;
-	justify-content: center;
-	align-items: end;
 }
 
 .white-key {
-	height: 100%;
 	background-color: white;
 	box-sizing: border-box;
 	flex-grow: 1;
@@ -48,16 +45,35 @@ body {
 }
 
 .black-key {
-	width: 4vw;
-	height: 50%;
 	background-color: black;
 	position: relative;
 	z-index: 1;
-	margin: 0 -2vw;
 }
 
 .black-key.active {
 	background-color: rgb(40, 40, 40, 1.0);
+}
+
+@media (min-aspect-ratio: 1/1) {
+	.piano {
+		flex-direction: row;
+	}
+
+	.white-key,
+	.black-key {
+		justify-content: center;
+		align-items: end;
+	}
+
+	.white-key {
+		height: 100%;
+	}
+
+	.black-key {
+		width: 4vw;
+		height: 50%;
+		margin: 0 -2vw;
+	}
 }
 
 @media (max-aspect-ratio: 1/1) {
