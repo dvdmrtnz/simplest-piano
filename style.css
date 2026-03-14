@@ -71,7 +71,7 @@ body {
 
 	.black-key {
 		width: 4vw;
-		height: 50%;
+		height: 70%;
 		margin: 0 -2vw;
 	}
 }
@@ -92,7 +92,7 @@ body {
 	}
 
 	.black-key {
-		width: 50%;
+		width: 70%;
 		height: 4vh;
 		margin: -2vh 0;
 	}
