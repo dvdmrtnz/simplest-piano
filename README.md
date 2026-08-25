@@ -1,8 +1,8 @@
-# piano
+# Simplest Piano
 
-Simple virtual piano website.
+It's the Simplest Piano web app.
 
-[Try it here!](http://dvdmrtnz.github.io/piano)
+[Try it here!](http://dvdmrtnz.github.io/simplest-piano)
 
 ## Credits
 
