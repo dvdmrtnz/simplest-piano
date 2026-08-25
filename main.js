@@ -172,11 +172,11 @@ var currentKeys = {};
 function moveTouchToKey(touchIdentifier, key) {
 	if (currentKeys[touchIdentifier] !== key) {
 		if (currentKeys[touchIdentifier]) {
-			console.log('Touch ' + touchIdentifier + ' moved out of ' + currentKeys[touchIdentifier]);
+			console.debug('Touch ' + touchIdentifier + ' moved out of ' + currentKeys[touchIdentifier]);
 			keyUp(currentKeys[touchIdentifier]);
 		};
 		if (key) {
-			console.log('Touch ' + touchIdentifier + ' moved in to ' + key);
+			console.debug('Touch ' + touchIdentifier + ' moved in to ' + key);
 			keyDown(key);
 		}
 		currentKeys[touchIdentifier] = key;
