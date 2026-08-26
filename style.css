@@ -99,6 +99,10 @@ body {
 }
 
 .label {
+
+	position: absolute;
+	z-index: 2;
+	
 	font-family: sans-serif;
 	margin: 10px;
 	text-align: center;
