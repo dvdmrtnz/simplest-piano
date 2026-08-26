@@ -203,6 +203,7 @@ function handleTouchStart(event) {
 	var touches = event.touches;
 	for (var i = 0; i < touches.length; i++) {
 		var touch = touches[i];
+		console.debug(`Touch ${touch.identifier} start (${touch.clientX}, ${touch.clientY})`);
 		var newKey = getKeyFromPoint(touch.clientX, touch.clientY);
 		moveTouchToKey(touch.identifier, newKey);
 	}
@@ -213,6 +214,7 @@ function handleTouchEnd(event) {
 	var touches = event.changedTouches;
 	for (var i = 0; i < touches.length; i++) {
 		var touch = touches[i];
+		console.debug(`Touch ${touch.identifier} end (${touch.clientX}, ${touch.clientY})`);
 		moveTouchToKey(touch.identifier, null);
 	}
 }
@@ -222,12 +224,14 @@ function handleMouseDown(event) {
 	if (event.buttons !== 1) {
 		return;
 	}
+	console.debug(`Mouse down (${event.clientX}, ${event.clientY})`);
 	var newKey = getKeyFromPoint(event.clientX, event.clientY);
 	moveTouchToKey(0, newKey);
 }
 
 function handleMouseUp(event) {
 	event.preventDefault();
+	console.debug(`Mouse up`);
 	moveTouchToKey(0, null);
 }
 
