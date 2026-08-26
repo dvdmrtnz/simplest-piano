@@ -154,9 +154,6 @@ const midi = new Tone.Sampler({
 	baseUrl: "./sounds/"
 }).toDestination();
 
-
-const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
-
 function getKeyFromPoint(x, y) {
 	var touchedElement = document.elementFromPoint(x, y);
 	if (touchedElement.id) {
