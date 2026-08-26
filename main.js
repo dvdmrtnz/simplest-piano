@@ -34,8 +34,6 @@ function init() {
 		document.querySelector('div.piano').appendChild(noteDOM);
 	}
 
-	document.querySelector(".piano").addEventListener("mousedown", start);
-
 	document.querySelector(".piano").addEventListener('touchstart', handleTouchStart);
 	document.querySelector(".piano").addEventListener('touchmove', handleTouchStart);
 	document.querySelector(".piano").addEventListener('touchend', handleTouchEnd);
@@ -181,10 +179,6 @@ function moveTouchToKey(touchIdentifier, key) {
 }
 
 function handleTouchStart(event) {
-	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume();
-	}
-
 	event.preventDefault();
 	var touches = event.touches;
 	for (var i = 0; i < touches.length; i++) {
@@ -195,10 +189,6 @@ function handleTouchStart(event) {
 }
 
 function handleTouchEnd(event) {
-	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume();
-	}
-
 	event.preventDefault();
 	var touches = event.changedTouches;
 	for (var i = 0; i < touches.length; i++) {
@@ -208,10 +198,6 @@ function handleTouchEnd(event) {
 }
 
 function handleMouseDown(event) {
-	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume();
-	}
-
 	event.preventDefault();
 	if (event.buttons !== 1) {
 		return;
@@ -221,17 +207,8 @@ function handleMouseDown(event) {
 }
 
 function handleMouseUp(event) {
-	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
-		Tone.getContext().resume();
-	}
-
 	event.preventDefault();
 	moveTouchToKey(0, null);
-}
-
-function start() {
-	console.log('Tone start');
-	Tone.start();
 }
 
 function idToName(id) {
@@ -261,14 +238,34 @@ function idToType(id) {
 	return type;
 }
 
-function keyDown(id) {
-	console.log('Key ' + id + ' down');
+async function keyDown(id) {
+	await ensureAudio();
+	console.log(`Key ${id} down`);
 	document.querySelector('div#' + id).classList.add('active');
 	midi.triggerAttack(idToTone(id), Tone.now());
 }
 
-function keyUp(id) {
-	console.log('Key ' + id + ' up');
+async function keyUp(id) {
+	await ensureAudio();
+	console.log(`Key ${id} up`);
 	document.querySelector('div#' + id).classList.remove('active');
 	midi.triggerRelease(idToTone(id), Tone.now());
+}
+
+async function ensureAudio() {
+	const context = Tone.getContext();
+
+	if (context.state === "running") {
+        return;
+    }
+
+	console.log(`Resuming AudioContext`);
+
+	await Tone.start();
+
+	console.log(`AudioContext ${Tone.getContext().state}`);
+
+	if (context.state !== "running") {
+        throw new Error(`AudioContext is not running (${Tone.getContext().state})`);
+    }
 }
