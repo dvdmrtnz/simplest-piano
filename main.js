@@ -36,15 +36,15 @@ function init() {
 
 	document.querySelector(".piano").addEventListener("mousedown", start);
 
-	document.addEventListener('touchstart', handleTouchStart);
-	document.addEventListener('touchmove', handleTouchStart);
-	document.addEventListener('touchend', handleTouchEnd);
-	document.addEventListener('touchcancel', handleTouchEnd);
+	document.querySelector(".piano").addEventListener('touchstart', handleTouchStart);
+	document.querySelector(".piano").addEventListener('touchmove', handleTouchStart);
+	document.querySelector(".piano").addEventListener('touchend', handleTouchEnd);
+	document.querySelector(".piano").addEventListener('touchcancel', handleTouchEnd);
 
-	document.addEventListener('mousedown', handleMouseDown);
-	document.addEventListener('mousemove', handleMouseDown);
-	document.addEventListener('mouseup', handleMouseUp);
-	document.addEventListener('mouseout', handleMouseUp);
+	document.querySelector(".piano").addEventListener('mousedown', handleMouseDown);
+	document.querySelector(".piano").addEventListener('mousemove', handleMouseDown);
+	document.querySelector(".piano").addEventListener('mouseup', handleMouseUp);
+	document.querySelector(".piano").addEventListener('mouseout', handleMouseUp);
 
 }
 
