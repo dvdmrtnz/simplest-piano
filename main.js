@@ -2,6 +2,26 @@ import './3party/tone.min.js';
 
 document.addEventListener('DOMContentLoaded', init);
 
+document.addEventListener("visibilitychange", visibilityChanged);
+
+async function visibilityChanged() {
+    console.log(`Visibility ${document.visibilityState}`);
+
+    if (document.visibilityState === "hidden") {
+        currentKeys = {};
+        midi.releaseAll();
+
+		try {
+            if (Tone.getContext().state === "running") {
+                await Tone.getContext().rawContext.suspend();
+				console.log(`AudioContext ${Tone.getContext().state}`);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+}
+
 function init() {
 
 	// Add service worker for offline playing
